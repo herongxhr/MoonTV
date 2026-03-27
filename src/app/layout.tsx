@@ -15,6 +15,20 @@ import { ThemeProvider } from '../components/ThemeProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const getMetadataBase = () => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
+  if (siteUrl) {
+    return new URL(siteUrl);
+  }
+
+  const vercelUrl = process.env.VERCEL_URL;
+  if (vercelUrl) {
+    return new URL(`https://${vercelUrl}`);
+  }
+
+  return new URL('http://localhost:3000');
+};
+
 // 动态生成 metadata，支持配置更新后的标题变化
 export async function generateMetadata(): Promise<Metadata> {
   let siteName = process.env.SITE_NAME || 'MoonTV';
@@ -28,6 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: siteName,
+    metadataBase: getMetadataBase(),
     description:
       'MoonTV 是跨平台影视聚合播放器，支持多源搜索、在线播放、收藏同步与播放记录管理。',
     manifest: '/manifest.json',

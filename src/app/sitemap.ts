@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 
+export const runtime = 'edge';
+
 const getBaseUrl = () => {
   const vercelUrl = process.env.VERCEL_URL;
   if (vercelUrl) {
