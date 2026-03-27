@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getBaseUrl();
   const now = new Date();
 
-  return [
+  const items: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
       lastModified: now,
@@ -40,4 +40,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
     },
   ];
+
+  // 豆瓣子类型页面
+  const doubanTypes = ['movie', 'tv', 'show', 'custom'] as const;
+  doubanTypes.forEach((t) => {
+    items.push({
+      url: `${baseUrl}/douban?type=${t}`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.7,
+    });
+  });
+
+  return items;
 }
