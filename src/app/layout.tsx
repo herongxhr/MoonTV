@@ -28,8 +28,33 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: siteName,
-    description: '影视聚合',
+    description:
+      'MoonTV 是跨平台影视聚合播放器，支持多源搜索、在线播放、收藏同步与播放记录管理。',
     manifest: '/manifest.json',
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      title: siteName,
+      description:
+        'MoonTV 是跨平台影视聚合播放器，支持多源搜索、在线播放、收藏同步与播放记录管理。',
+      type: 'website',
+      locale: 'zh_CN',
+      url: '/',
+      siteName,
+      images: [
+        {
+          url: '/logo.png',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteName,
+      description:
+        'MoonTV 是跨平台影视聚合播放器，支持多源搜索、在线播放、收藏同步与播放记录管理。',
+      images: ['/logo.png'],
+    },
   };
 }
 

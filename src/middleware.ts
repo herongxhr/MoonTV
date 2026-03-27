@@ -121,6 +121,7 @@ function shouldSkipAuth(pathname: string): boolean {
     '/_next',
     '/favicon.ico',
     '/robots.txt',
+    '/sitemap.xml',
     '/manifest.json',
     '/icons/',
     '/logo.png',
