@@ -1,0 +1,7 @@
+vite + vue3
+使用 ant-design-vue ui库
+Use Tailwind CSS for styling.
+Avoid inline styles.
+
+You MUST always generate git commit messages in Simplified Chinese (简体中文).
+DO NOT use English for the description.
